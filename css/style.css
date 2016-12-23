@@ -1,0 +1,63 @@
+body {
+    position: relative;
+    padding-top: 70px;
+    background-color: #c8e5bc;
+}
+.header {
+    background-color: #31b0d5;
+}
+.center {
+    margin-top: 10px;
+}
+.header-text {
+    font-size: 20px;
+}
+.about-part {
+    background-color: darkgray;
+    min-height: 300px;
+    margin: auto;
+}
+.ava-pic {
+    display: block;
+    max-width: 50%;
+    margin: auto;
+    padding: 25px 0px 35px 0px;
+}
+.port-part {
+    background-color: cornflowerblue; 
+    min-height: 350px;
+}
+.port-pad {
+    padding: 25px;
+}
+.port-pic {
+    display: inline-block;
+    max-width: 70%;
+    padding: 15px;
+}
+.cont-part {
+    background-color: #a58222;
+}
+.footer {
+    padding-bottom: 50px;
+}
+.partBottom {
+    margin-bottom: 0px;
+    background-color: #31b0d5;
+    height: 70px;
+}
+.footer-left {
+    float: left;
+}
+.footer-right {
+    float: right;
+}
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.42;
+  border-radius: 15px;
+}
