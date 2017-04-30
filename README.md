@@ -5,7 +5,15 @@
 https://github.com/facebookincubator/create-react-app
 3. Add Material Design with npm
 `npm install material-design-lite --save`
-4. Main page is in:
+`npm install --save material-components-web`
+Documentation:
+https://github.com/material-components/material-components-web/blob/master/docs/getting-started.md
+Example for use MD with Create React App:
+https://github.com/material-components/material-components-web/tree/master/framework-examples/react
+4. Main project is in:
 `./react-pfpage/`
 5. Server: 
 `npm start` or `yarn start`
+6. Folder `templates` contains:
+- template https://getmdl.io/templates/portfolio/index.html
+- use MD with React https://github.com/material-components/material-components-web/tree/master/framework-examples/react
