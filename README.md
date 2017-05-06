@@ -6,6 +6,7 @@ https://github.com/facebookincubator/create-react-app
 3. Add Material Design with npm
 `npm install material-design-lite --save`
 `npm install --save material-components-web`
+`npm install --save material-ui` with `npm i --save react-tap-event-plugin`
 Documentation:
 https://github.com/material-components/material-components-web/blob/master/docs/getting-started.md
 Example for use MD with Create React App:
