@@ -1,26 +1,26 @@
 import React from 'react'
-import FontIcon from 'material-ui/FontIcon'
-import {indigo50, indigo900} from 'material-ui/styles/colors'
+import IconButton from 'material-ui/IconButton'
+import {indigo50} from 'material-ui/styles/colors'
 
 
 const iconStyles = {
-  paddingLeft: 5,
-  paddingTop: 12,
+  iconHoverColor: indigo50,
 }
-
+const urls = {
+  gh: 'https://github.com/4edorov',
+  fb: 'https://www.facebook.com/alexander.fedorov.948'
+}
 const MyAppBarIcon = () => (
   <div>
-    <FontIcon
-      className="fa fa-github"
-      style={iconStyles}
-      color={indigo50}
-      hoverColor={indigo900}
+    <IconButton
+      iconClassName="fa fa-github"
+      href={urls.gh}
+      iconStyle={iconStyles}
     />
-    <FontIcon
-      className="fa fa-facebook-square"
-      style={iconStyles}
-      color={indigo50}
-      hoverColor={indigo900}
+    <IconButton
+      iconClassName="fa fa-facebook-official"
+      href={urls.fb}
+      iconStyle={iconStyles}
     />
   </div>
 )
