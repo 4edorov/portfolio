@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import './App.css'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import MyAppBarComponent from './Components/MyAppBarComponent'
 import injectTapEventPlugin from 'react-tap-event-plugin'
@@ -13,8 +13,8 @@ class App extends Component {
       <MuiThemeProvider>
         <MyAppBarComponent/>
       </MuiThemeProvider>
-    );
+    )
   }
 }
 
-export default App;
+export default App
