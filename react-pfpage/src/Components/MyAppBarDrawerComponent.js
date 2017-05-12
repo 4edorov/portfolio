@@ -1,7 +1,13 @@
 import React from 'react'
 import Drawer from 'material-ui/Drawer'
 import IconButton from 'material-ui/IconButton'
+import {indigo50} from 'material-ui/styles/colors'
+import MyAppBarInfoComponent from './MyAppBarInfoComponent'
 
+
+const iconStyles = {
+  iconHoverColor: indigo50
+}
 
 export default class MyAppBarDrawerComponent extends React.Component {
 
@@ -19,6 +25,7 @@ export default class MyAppBarDrawerComponent extends React.Component {
       <div>
         <IconButton
           iconClassName="fa fa-bars"
+          iconStyle={iconStyles}
           onTouchTap={this.handleToggle}
         />
         <Drawer
@@ -26,7 +33,9 @@ export default class MyAppBarDrawerComponent extends React.Component {
           width={300}
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
-        />
+        >
+          <MyAppBarInfoComponent />
+        </Drawer>
       </div>
     )
   }
