@@ -18,3 +18,5 @@ https://github.com/material-components/material-components-web/tree/master/frame
 6. Folder `templates` contains:
 - template https://getmdl.io/templates/portfolio/index.html
 - use MD with React https://github.com/material-components/material-components-web/tree/master/framework-examples/react
+7. Added eslint module:
+https://www.npmjs.com/package/eslint
