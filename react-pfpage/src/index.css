@@ -1,5 +1,14 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+}
+
+@media all and (max-width: 640px) {
+  .paper-main {
+    flex-basis: 100% !important;
+  }
+}
+
+.paper-main {
+  flex-basis: 65%;
 }
