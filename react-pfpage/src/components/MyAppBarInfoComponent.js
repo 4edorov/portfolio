@@ -1,6 +1,6 @@
 import React from 'react'
 import Avatar from 'material-ui/Avatar'
-import imageAvatar from '../../src/Assets/Static/Images/Avatar.jpg'
+import imageAvatar from '../../src/assets/static/images/Avatar.jpg'
 import {List, ListItem} from 'material-ui/List'
 import Divider from 'material-ui/Divider'
 import SocialMood from 'material-ui/svg-icons/social/mood'

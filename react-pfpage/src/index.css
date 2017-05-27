@@ -3,6 +3,7 @@ body {
   padding: 0;
 }
 
+/* content */
 @media all and (max-width: 640px) {
   .paper-main {
     flex-basis: 100% !important;
@@ -11,4 +12,13 @@ body {
 
 .paper-main {
   flex-basis: 65%;
+}
+
+.content-greeting {
+  font-family: monospace;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

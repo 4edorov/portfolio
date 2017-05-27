@@ -4,9 +4,9 @@ import CommunicationTextsms from 'material-ui/svg-icons/communication/textsms'
 
 
 const styles = {
-  position: 'absolute',
-  right: 20,
-  bottom: 20
+  position: 'fixed',
+  right: 40,
+  bottom: 40
 }
 
 const MyFloatButtonComponent = () => (

@@ -1,5 +1,6 @@
 import React from 'react'
 import Paper from 'material-ui/Paper'
+import MyContentGreetingComponent from './content/MyContentGreetingComponent'
 
 
 const styles = {
@@ -18,6 +19,7 @@ const MyContentComponent = () => {
     <div>
       <div style={styles.paperBase}>
         <Paper className="paper-main" zDepth={3}>
+          <MyContentGreetingComponent/>
         </Paper>
       </div>
     </div>

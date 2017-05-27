@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import './App.css'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import MyAppBarComponent from './Components/MyAppBarComponent'
-import MyFloatButtonComponent from './Components/MyFloatButtonComponent'
-import MyContentComponent from './Components/MyContentComponent'
+import MyAppBarComponent from './components/MyAppBarComponent'
+import MyFloatButtonComponent from './components/MyFloatButtonComponent'
+import MyContentComponent from './components/MyContentComponent'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin()
 
