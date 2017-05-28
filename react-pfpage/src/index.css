@@ -14,11 +14,21 @@ body {
   flex-basis: 65%;
 }
 
-.content-greeting {
+.content {
   font-family: monospace;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.content-greeting {
+  justify-content: center;
+  align-items: center;
+}
+
+.about-2 {
+  max-width: 60%;
+  font-size: 18px;
 }
