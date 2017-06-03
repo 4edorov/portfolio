@@ -8,7 +8,7 @@ import CommunicationEmail from 'material-ui/svg-icons/communication/email'
 import CommunicationChat from 'material-ui/svg-icons/communication/chat'
 import CommunicationBusiness from 'material-ui/svg-icons/communication/business'
 import CommunicationContacts from 'material-ui/svg-icons/communication/contacts'
-import {green400} from 'material-ui/styles/colors'
+import {green400, grey900} from 'material-ui/styles/colors'
 
 const MyAppBarInfoComponent = () => (
   <div>
@@ -25,7 +25,7 @@ const MyAppBarInfoComponent = () => (
       />
       <ListItem
         leftIcon={<CommunicationEmail color={green400} />}
-        primaryText="4edorov@gmail.com"
+        primaryText={<a style={{textDecoration: 'none', color: grey900}} href="mailto:4edorov@gmail.com">4edorov@gmail.com</a>}
       />
     </List>
     <Divider />
