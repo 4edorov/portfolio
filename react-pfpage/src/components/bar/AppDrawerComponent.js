@@ -7,7 +7,7 @@ class AppDrawerComponent extends React.Component {
   render() {
     return (
       <div>
-        <Drawer open={true} docked={true}>
+        <Drawer open={this.props.open} docked={this.props.docked}>
           <AppDrawerInfoComponent />
         </Drawer>
       </div>

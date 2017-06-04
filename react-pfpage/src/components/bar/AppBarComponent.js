@@ -10,7 +10,6 @@ import IconButton from 'material-ui/IconButton';
 
 // import MyAppBarIconComponent from './MyAppBarIconComponent'
 // import MyAppBarDrawerComponent from './MyAppBarDrawerComponent'
-
 const styleSheet = createStyleSheet('AppBarComponent', {
   appBar: {
     position: 'fixed',
