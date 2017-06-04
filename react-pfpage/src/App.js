@@ -1,25 +1,22 @@
-import React, { Component } from 'react'
-import './App.css'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import MyAppBarComponent from './components/MyAppBarComponent'
-import MyFloatButtonComponent from './components/MyFloatButtonComponent'
-import MyContentComponent from './components/MyContentComponent'
-import injectTapEventPlugin from 'react-tap-event-plugin'
-injectTapEventPlugin()
+import React from 'react';
+import './App.css';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import createPalette from 'material-ui/styles/palette';
+import Root from './Root';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 
-class App extends Component {
-  render() {
-    return (
-      <MuiThemeProvider>
-        <div>
-          <MyAppBarComponent />
-          <MyFloatButtonComponent />
-          <MyContentComponent />
-        </div>
-      </MuiThemeProvider>
-    )
-  }
+const theme = createMuiTheme({
+  palette: createPalette({}),
+});
+
+function App() {
+  return (
+    <MuiThemeProvider theme={theme}>
+      <Root />
+    </MuiThemeProvider>
+  );
 }
 
-export default App
+export default App;
