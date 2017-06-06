@@ -28,12 +28,18 @@ const styleSheet = createStyleSheet('AppDrawerInfoComponent', theme => ({
     color: theme.palette.text.primary,
     fontFamily: theme.typography.fontFamily,
   },
+  begin: {
+    marginTop: 64,
+  },
 }));
 
 function AppDrawerInfoComponent(props) {
   const classes = props.classes;
   return (
     <div>
+      <div className={classes.begin}>
+        <Divider />
+      </div>
       <Avatar
         alt="Alexander Fedorov"
         src={weberPhoto}

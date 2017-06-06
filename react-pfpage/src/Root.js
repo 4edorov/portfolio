@@ -10,12 +10,13 @@ class Root extends React.Component {
     super(props);
     this.state = {
       isDrawer: false,
+      isDocked: false,
     };
   }
 
   updateDimension = () => {
-    window.innerWidth < 960 ?
-      this.setState({isDrawer: false}) : this.setState({isDrawer: true})
+    window.innerWidth < 1280 ?
+      this.setState({isDrawer: false, isDocked: false}) : this.setState({isDrawer: true, isDocked: true})
   }
   componentDidMount() {
     this.updateDimension();
@@ -26,10 +27,11 @@ class Root extends React.Component {
   }
 
   render () {
+    const classes = this.props.classes;
     return (
       <div>
-        <AppBarComponent />
-        <AppDrawerComponent  open={this.state.isDrawer} docked={true} />
+        <AppBarComponent menu={this.state.isDrawer}/>
+        <AppDrawerComponent open={this.state.isDrawer} docked={this.state.isDocked} />
       </div>
     );
   }

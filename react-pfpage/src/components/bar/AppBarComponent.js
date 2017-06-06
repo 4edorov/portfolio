@@ -12,18 +12,23 @@ import IconButton from 'material-ui/IconButton';
 // import MyAppBarDrawerComponent from './MyAppBarDrawerComponent'
 const styleSheet = createStyleSheet('AppBarComponent', {
   appBar: {
-    position: 'fixed',
+    '@media (min-width: 1280px)': {
+      width: 'calc(100% - 290px)',
+      left: 290,
+    },
   },
 });
 
 const AppBarComponent = (props) => {
-  const classes = props.classes
+  const classes = props.classes;
   return (
     <AppBar className={classes.appBar}>
       <Toolbar>
-        <IconButton contrast>
-          <MenuIcon />
-        </IconButton>
+        {!  props.menu &&
+          <IconButton contrast>
+            <MenuIcon />
+          </IconButton>
+        }
       </Toolbar>
     </AppBar>
   );
