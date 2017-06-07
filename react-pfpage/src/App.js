@@ -1,21 +1,20 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import interactionApp from './reducers/interactionApp';
 import './App.css';
-import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import createPalette from 'material-ui/styles/palette';
 import Root from './Root';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 
-const theme = createMuiTheme({
-  palette: createPalette({}),
-});
+let store = createStore(interactionApp);
 
 function App() {
   return (
-    <MuiThemeProvider theme={theme}>
+    <Provider store={store}>
       <Root />
-    </MuiThemeProvider>
+    </Provider>
   );
 }
 

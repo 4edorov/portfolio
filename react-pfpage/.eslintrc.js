@@ -5,6 +5,6 @@ module.exports = {
       "promise"
   ],
   "rules": {
-    "semi": 0,
+    "semi": 1,
   },
 };
