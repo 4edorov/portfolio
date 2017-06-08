@@ -1,14 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import interactionApp from './reducers/interactionApp';
+import toggleDrawer from './reducers';
 import './App.css';
 import Root from './Root';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 
-let store = createStore(interactionApp);
+let store = createStore(toggleDrawer);
 
 function App() {
   return (

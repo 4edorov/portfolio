@@ -1,22 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import AppBarComponent from './components/bar/AppBarComponent';
 import AppDrawerComponent from './components/bar/AppDrawerComponent';
-// import MyFloatButtonComponent from './components/MyFloatButtonComponent';
-// import MyContentComponent from './components/MyContentComponent';
+import { toggleDrawer } from './actions';
 
+
+const mapStateToProps = (state) => ({
+  open: state.stateDrawer
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  toggleDrawer(open) {
+    dispatch(toggleDrawer(open));
+  }
+});
 
 class Root extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isDrawer: false,
-      isDocked: false,
-    };
-  }
-
   updateDimension = () => {
-    window.innerWidth < 1280 ?
-      this.setState({isDrawer: false, isDocked: false}) : this.setState({isDrawer: true, isDocked: true})
+    let open = window.innerWidth < 1280 ? false : true
+    this.props.toggleDrawer(open);
   }
   componentDidMount() {
     this.updateDimension();
@@ -27,14 +29,13 @@ class Root extends React.Component {
   }
 
   render () {
-    const classes = this.props.classes;
     return (
       <div>
-        <AppBarComponent menu={this.state.isDrawer}/>
-        <AppDrawerComponent open={this.state.isDrawer} docked={this.state.isDocked} />
+        <AppBarComponent />
+        <AppDrawerComponent open={this.props.open}/>
       </div>
     );
   }
 };
 
-export default Root;
+export default connect(mapStateToProps, mapDispatchToProps)(Root);
