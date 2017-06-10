@@ -8,6 +8,8 @@ import Toolbar from 'material-ui/Toolbar';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import MenuIcon from 'material-ui-icons/Menu';
 import IconButton from 'material-ui/IconButton';
+import Icon from 'material-ui/Icon';
+import { URL_GIT_HUB, URL_FACEBOOK } from '../../config/AppConfig';
 
 
 // import MyAppBarIconComponent from './MyAppBarIconComponent'
@@ -20,6 +22,11 @@ const styleSheet = createStyleSheet('AppBarComponent', {
       width: 'calc(100% - 290px)',
       left: 290,
     },
+  },
+  barToolIcons: {
+    display: 'flex',
+    flexBasis: '100%',
+    justifyContent: 'flex-end',
   },
 });
 
@@ -44,12 +51,18 @@ const AppBarComponent = (props) => {
       <Toolbar>
         {
           props.overlay &&
-          <IconButton contrast
-            onClick={handleDrawerOpen}
-          >
+          <IconButton contrast onClick={handleDrawerOpen}>
             <MenuIcon />
           </IconButton>
         }
+        <div className={classes.barToolIcons}>
+          <IconButton contrast href={URL_GIT_HUB}>
+            <Icon className="fa fa-github" />
+          </IconButton>
+          <IconButton contrast href={URL_FACEBOOK}>
+            <Icon className="fa fa-facebook-official" />
+          </IconButton>
+        </div>
       </Toolbar>
     </AppBar>
   );
