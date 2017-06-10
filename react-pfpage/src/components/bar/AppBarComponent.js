@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { toggleDrawer } from '../../actions';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 // import Typography from 'material-ui/Typography';
@@ -10,6 +12,8 @@ import IconButton from 'material-ui/IconButton';
 
 // import MyAppBarIconComponent from './MyAppBarIconComponent'
 // import MyAppBarDrawerComponent from './MyAppBarDrawerComponent'
+
+
 const styleSheet = createStyleSheet('AppBarComponent', {
   appBar: {
     '@media (min-width: 1280px)': {
@@ -19,13 +23,30 @@ const styleSheet = createStyleSheet('AppBarComponent', {
   },
 });
 
+const mapStateToProps = (state) => ({
+  open: state.openDrawer,
+});
+const mapDispatchToProps = (dispatch) => ({
+  toggleDrawer(mode) {
+    dispatch(toggleDrawer(mode));
+  },
+});
+
 const AppBarComponent = (props) => {
   const classes = props.classes;
+
+  const handleDrawerOpen = () => {
+    props.toggleDrawer(!props.open);
+  };
+
   return (
     <AppBar className={classes.appBar}>
       <Toolbar>
-        {!  props.menu &&
-          <IconButton contrast>
+        {
+          props.overlay &&
+          <IconButton contrast
+            onClick={handleDrawerOpen}
+          >
             <MenuIcon />
           </IconButton>
         }
@@ -38,4 +59,4 @@ AppBarComponent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styleSheet)(AppBarComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(AppBarComponent));

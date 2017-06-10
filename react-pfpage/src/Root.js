@@ -2,23 +2,28 @@ import React from 'react';
 import { connect } from 'react-redux';
 import AppBarComponent from './components/bar/AppBarComponent';
 import AppDrawerComponent from './components/bar/AppDrawerComponent';
-import { toggleDrawer } from './actions';
+import { toggleDrawer, stateDrawer } from './actions';
 
 
 const mapStateToProps = (state) => ({
-  open: state.stateDrawer
+  open: state.openDrawer,
+  docked: state.dockedDrawer,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleDrawer(open) {
-    dispatch(toggleDrawer(open));
-  }
+  toggleDrawer(mode) {
+    dispatch(toggleDrawer(mode));
+  },
+  stateDrawer(mode) {
+    dispatch(stateDrawer(mode));
+  },
 });
 
 class Root extends React.Component {
   updateDimension = () => {
-    let open = window.innerWidth < 1280 ? false : true
-    this.props.toggleDrawer(open);
+    let mode = window.innerWidth < 1280 ? false : true;
+    this.props.toggleDrawer(mode);
+    this.props.stateDrawer(mode);
   }
   componentDidMount() {
     this.updateDimension();
@@ -27,12 +32,14 @@ class Root extends React.Component {
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateDimension);
   }
-
   render () {
     return (
       <div>
-        <AppBarComponent />
-        <AppDrawerComponent open={this.props.open}/>
+        <AppBarComponent overlay={!this.props.docked} />
+        <AppDrawerComponent
+          open={this.props.open}
+          docked={this.props.docked}
+        />
       </div>
     );
   }
