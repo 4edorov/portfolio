@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { toggleDrawer } from '../../actions';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
-// import Typography from 'material-ui/Typography';
+import Typography from 'material-ui/Typography';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import MenuIcon from 'material-ui-icons/Menu';
 import IconButton from 'material-ui/IconButton';
@@ -28,10 +28,15 @@ const styleSheet = createStyleSheet('AppBarComponent', {
     flexBasis: '100%',
     justifyContent: 'flex-end',
   },
+  flex: {
+    marginLeft: 20,
+    flexBasis: '100%',
+  },
 });
 
 const mapStateToProps = (state) => ({
   open: state.openDrawer,
+  stateApp: state.stateApp,
 });
 const mapDispatchToProps = (dispatch) => ({
   toggleDrawer(mode) {
@@ -55,6 +60,9 @@ const AppBarComponent = (props) => {
             <MenuIcon />
           </IconButton>
         }
+        <Typography type="title" colorInherit className={classes.flex}>
+          {props.stateApp}
+        </Typography>
         <div className={classes.barToolIcons}>
           <IconButton contrast href={URL_GIT_HUB}>
             <Icon className="fa fa-github" />

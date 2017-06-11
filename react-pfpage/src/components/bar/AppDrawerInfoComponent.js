@@ -1,17 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
+import { changeStateApp } from '../../actions';
 import Avatar from 'material-ui/Avatar';
 import weberPhoto from '../../assets/static/images/Avatar.jpg';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Face from 'material-ui-icons/Face';
 import Email from 'material-ui-icons/Email';
+import LightbulbOutline from 'material-ui-icons/LightbulbOutline';
 import ArtTrack from 'material-ui-icons/ArtTrack';
 import Business from 'material-ui-icons/Business';
 import Directions from 'material-ui-icons/Directions';
 import Contacts from 'material-ui-icons/Contacts';
+import { STATE_APP } from '../../config/AppConfig';
 
+
+const mapStateToProps = (state) => ({
+  stateApp: state.stateApp,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  changeStateApp(mode) {
+    dispatch(changeStateApp(mode));
+  },
+});
 
 const styleSheet = createStyleSheet('AppDrawerInfoComponent', theme => ({
   avatar: {
@@ -33,8 +47,18 @@ const styleSheet = createStyleSheet('AppDrawerInfoComponent', theme => ({
   },
 }));
 
-function AppDrawerInfoComponent(props) {
+const AppDrawerInfoComponent = (props) => {
   const classes = props.classes;
+  const handleAppState = (mode) => {
+    props.changeStateApp(mode);
+  };
+  const icons = [
+    <LightbulbOutline />,
+    <ArtTrack />,
+    <Business />,
+    <Directions />,
+    <Contacts />,
+  ];
   return (
     <div>
       <div className={classes.begin}>
@@ -61,38 +85,18 @@ function AppDrawerInfoComponent(props) {
           </ListItem>
         </List>
         <Divider />
-        <List>
-          <ListItem button={true}>
-            <ListItemIcon>
-              <ArtTrack />
-            </ListItemIcon>
-            <ListItemText primary="About Me" />
-          </ListItem>
-        </List>
-        <List>
-          <ListItem button={true}>
-            <ListItemIcon>
-              <Business />
-            </ListItemIcon>
-            <ListItemText primary="Portfolio" />
-          </ListItem>
-        </List>
-        <List>
-          <ListItem button={true}>
-            <ListItemIcon>
-              <Directions />
-            </ListItemIcon>
-            <ListItemText primary="My Way" />
-          </ListItem>
-        </List>
-        <List>
-          <ListItem button={true}>
-            <ListItemIcon>
-              <Contacts />
-            </ListItemIcon>
-            <ListItemText primary="Contact Me" />
-          </ListItem>
-        </List>
+        {STATE_APP.map((list, index) => {
+          return (
+            <List key={index}>
+              <ListItem button={true} onClick={() => handleAppState(list)}>
+                <ListItemIcon>
+                  {icons[index]}
+                </ListItemIcon>
+                <ListItemText primary={list} />
+              </ListItem>
+            </List>
+          );
+        })}
         <Divider />
       </div>
     </div>
@@ -103,4 +107,4 @@ AppDrawerInfoComponent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styleSheet)(AppDrawerInfoComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(AppDrawerInfoComponent));

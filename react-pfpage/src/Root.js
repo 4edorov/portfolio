@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import AppBarComponent from './components/bar/AppBarComponent';
 import AppDrawerComponent from './components/bar/AppDrawerComponent';
 import { toggleDrawer, stateDrawer } from './actions';
+import AppButtonComponent from './components/elements/AppButtonComponent';
 
 
 const mapStateToProps = (state) => ({
@@ -40,6 +41,7 @@ class Root extends React.Component {
           open={this.props.open}
           docked={this.props.docked}
         />
+        <AppButtonComponent />
       </div>
     );
   }
