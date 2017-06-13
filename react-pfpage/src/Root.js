@@ -4,6 +4,7 @@ import AppBarComponent from './components/bar/AppBarComponent';
 import AppDrawerComponent from './components/bar/AppDrawerComponent';
 import { toggleDrawer, stateDrawer } from './actions';
 import AppButtonComponent from './components/elements/AppButtonComponent';
+import AppContentComponent from './components/content/AppContentComponent';
 
 
 const mapStateToProps = (state) => ({
@@ -42,6 +43,7 @@ class Root extends React.Component {
           docked={this.props.docked}
         />
         <AppButtonComponent />
+        <AppContentComponent />
       </div>
     );
   }

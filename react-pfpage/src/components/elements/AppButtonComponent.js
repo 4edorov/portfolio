@@ -44,7 +44,7 @@ const AppButtonComponent = (props) => {
       className={classes.appButton}
       onClick={() => {handleAppState()}}
     >
-      {indexNextState === 0 ? <Refresh />: <ArrowForward />}
+      {indexNextState === 0 ? <Refresh /> : <ArrowForward />}
     </Button>
   );
 };
