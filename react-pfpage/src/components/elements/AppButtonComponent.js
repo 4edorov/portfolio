@@ -1,50 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import Button from 'material-ui/Button';
-import ArrowForward from 'material-ui-icons/ArrowForward';
-import Refresh from 'material-ui-icons/Refresh';
-import { STATE_APP } from '../../config/AppConfig';
-import { changeStateApp } from '../../actions';
+import Chat from 'material-ui-icons/Chat';
 
 
-const mapStateToProps = (state) => ({
-  stateApp: state.stateApp,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  changeStateApp(mode) {
-    dispatch(changeStateApp(mode));
-  },
-});
-
-const styleSheet = createStyleSheet('AppButtonComponent', {
+const styleSheet = createStyleSheet('AppButtonComponent', theme => ({
   appButton: {
     position: 'fixed',
     right: 40,
     bottom: 40,
   },
-});
+  mailTo: {
+    textDecoration: 'none',
+    color: theme.palette.text.primary,
+    fontFamily: theme.typography.fontFamily,
+  },
+}));
 
 const AppButtonComponent = (props) => {
   const classes = props.classes;
-  let indexNextState = STATE_APP.indexOf(props.stateApp) + 1;
-  if (indexNextState > 4) {
-    indexNextState = 0;
-  }
-  let nextState = STATE_APP[indexNextState];
-  const handleAppState = () => {
-    props.changeStateApp(nextState);
-  };
   return (
-    <Button
-      fab
-      accent
-      className={classes.appButton}
-      onClick={() => {handleAppState()}}
-    >
-      {indexNextState === 0 ? <Refresh /> : <ArrowForward />}
+    <Button fab accent className={classes.appButton}>
+      <a className={classes.mailTo} href="mailto:4edorov@gmail.com">
+        <Chat />
+      </a>
     </Button>
   );
 };
@@ -53,4 +33,4 @@ AppButtonComponent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(AppButtonComponent));
+export default withStyles(styleSheet)(AppButtonComponent);

@@ -12,7 +12,7 @@ const styleSheet = createStyleSheet('AppContentComponent', {
       width: 'calc(100% - 290px)',
       left: 290,
     },
-    top: 64,
+    position: 'relative',
   },
 });
 
@@ -22,19 +22,10 @@ const mapStateToProps = (state) => ({
 
 const AppContentComponent = (props) => {
   const classes = props.classes;
-  console.log('state props: ', props.stateApp);
-  let slide;
-  switch (props.stateApp) {
-    case "Greeting":
-      slide = <ContentGreetingComponent />;
-      break;
-    case "About Me":
-      slide = <ContentAboutComponent />;
-      break;
-  };
   return (
     <div className={classes.appContent}>
-      {slide}
+      <ContentGreetingComponent />
+      <ContentAboutComponent />
     </div>
   );
 };

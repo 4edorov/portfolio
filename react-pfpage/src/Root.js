@@ -5,11 +5,13 @@ import AppDrawerComponent from './components/bar/AppDrawerComponent';
 import { toggleDrawer, stateDrawer } from './actions';
 import AppButtonComponent from './components/elements/AppButtonComponent';
 import AppContentComponent from './components/content/AppContentComponent';
+import { STATE_APP } from './config/AppConfig';
 
 
 const mapStateToProps = (state) => ({
   open: state.openDrawer,
   docked: state.dockedDrawer,
+  stateApp: state.stateApp,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -42,7 +44,7 @@ class Root extends React.Component {
           open={this.props.open}
           docked={this.props.docked}
         />
-        <AppButtonComponent />
+        {this.props.stateApp === STATE_APP[4] && <AppButtonComponent />}
         <AppContentComponent />
       </div>
     );

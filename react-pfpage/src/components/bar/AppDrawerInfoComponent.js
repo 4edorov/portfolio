@@ -37,7 +37,7 @@ const styleSheet = createStyleSheet('AppDrawerInfoComponent', theme => ({
     width: '100%',
     background: theme.palette.background.paper,
   },
-  mailto: {
+  mailTo: {
     textDecoration: 'none',
     color: theme.palette.text.primary,
     fontFamily: theme.typography.fontFamily,
@@ -81,7 +81,7 @@ const AppDrawerInfoComponent = (props) => {
             <ListItemIcon>
               <Email />
             </ListItemIcon>
-            <ListItemText primary={<a className={classes.mailto} href="mailto:4edorov@gmail.com">4edorov@gmail.com</a>} />
+            <ListItemText primary={<a className={classes.mailTo} href="mailto:4edorov@gmail.com">4edorov@gmail.com</a>} />
           </ListItem>
         </List>
         <Divider />
