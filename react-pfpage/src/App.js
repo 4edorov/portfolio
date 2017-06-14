@@ -10,7 +10,7 @@ injectTapEventPlugin();
 
 let store = createStore(toggleDrawer);
 
-function App() {
+function App () {
   return (
     <Provider store={store}>
       <Root />

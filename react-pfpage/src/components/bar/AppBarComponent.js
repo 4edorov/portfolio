@@ -12,10 +12,6 @@ import Icon from 'material-ui/Icon';
 import { URL_GIT_HUB, URL_FACEBOOK } from '../../config/AppConfig';
 
 
-// import MyAppBarIconComponent from './MyAppBarIconComponent'
-// import MyAppBarDrawerComponent from './MyAppBarDrawerComponent'
-
-
 const styleSheet = createStyleSheet('AppBarComponent', {
   appBar: {
     '@media (min-width: 1280px)': {
