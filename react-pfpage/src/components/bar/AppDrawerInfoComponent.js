@@ -75,7 +75,7 @@ const AppDrawerInfoComponent = (props) => {
             <ListItemIcon>
               <Face />
             </ListItemIcon>
-            <ListItemText primary="Alexander Fedorov" secondary="frontend developer" />
+            <ListItemText primary="Alexander Fedorov" secondary="Front-End Developer" />
           </ListItem>
           <ListItem button={true}>
             <ListItemIcon>
@@ -88,12 +88,14 @@ const AppDrawerInfoComponent = (props) => {
         {STATE_APP.map((list, index) => {
           return (
             <List key={index}>
+              <a href={`#nav${list}`}>
               <ListItem button={true} onClick={() => handleAppState(list)}>
                 <ListItemIcon>
                   {icons[index]}
                 </ListItemIcon>
                 <ListItemText primary={list} />
               </ListItem>
+              </a>
             </List>
           );
         })}
