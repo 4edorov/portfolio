@@ -1,25 +1,21 @@
-import React, { Component } from 'react'
-import './App.css'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import MyAppBarComponent from './Components/MyAppBarComponent'
-import MyFloatButtonComponent from './Components/MyFloatButtonComponent'
-import MyGreetingComponent from './Components/MyGreetingComponent'
-import injectTapEventPlugin from 'react-tap-event-plugin'
-injectTapEventPlugin()
+import React from 'react';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import toggleDrawer from './reducers';
+import './App.css';
+import Root from './Root';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 
-class App extends Component {
-  render() {
-    return (
-      <MuiThemeProvider>
-        <div>
-          <MyAppBarComponent />
-          <MyFloatButtonComponent />
-          <MyGreetingComponent />
-        </div>
-      </MuiThemeProvider>
-    )
-  }
+let store = createStore(toggleDrawer);
+
+function App () {
+  return (
+    <Provider store={store}>
+      <Root />
+    </Provider>
+  );
 }
 
-export default App
+export default App;
