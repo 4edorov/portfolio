@@ -52,18 +52,18 @@ const AppBarComponent = (props) => {
       <Toolbar>
         {
           props.overlay &&
-          <IconButton contrast onClick={handleDrawerOpen}>
+          <IconButton onClick={handleDrawerOpen}>
             <MenuIcon />
           </IconButton>
         }
-        <Typography type="title" colorInherit className={classes.flex}>
+        <Typography type="title" className={classes.flex}>
           {props.stateApp}
         </Typography>
         <div className={classes.barToolIcons}>
-          <IconButton contrast href={URL_GIT_HUB}>
+          <IconButton href={URL_GIT_HUB}>
             <Icon className="fa fa-github" />
           </IconButton>
-          <IconButton contrast href={URL_FACEBOOK}>
+          <IconButton href={URL_FACEBOOK}>
             <Icon className="fa fa-facebook-official" />
           </IconButton>
         </div>

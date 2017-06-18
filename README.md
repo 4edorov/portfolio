@@ -25,3 +25,4 @@ https://www.npmjs.com/package/eslint
 `npm install --save react-redux`
 9. Install React-router (for navigation)
 `yarn add react-router-dom`
+(not used)
