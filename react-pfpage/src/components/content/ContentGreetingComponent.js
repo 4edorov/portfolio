@@ -3,8 +3,7 @@ import React from 'react'
 
 const MyContentGreetingComponent = () => {
   return (
-    <div>
-      <a id="navGreeting"></a>
+    <div id="greeting">
       <div className="content content-greeting">
 
         <div className="greeting-1">

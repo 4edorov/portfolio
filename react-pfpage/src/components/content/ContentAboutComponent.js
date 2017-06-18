@@ -3,8 +3,7 @@ import React from 'react'
 
 const MyContentAboutComponent = () => {
   return (
-    <div>
-      <a id="navAboutMe"></a>
+    <div id="about-me">
       <div className="content content-about">
         <div className="about-1">
           <h1># About Me</h1>

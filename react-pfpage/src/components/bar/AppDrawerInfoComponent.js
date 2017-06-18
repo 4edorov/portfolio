@@ -85,20 +85,20 @@ const AppDrawerInfoComponent = (props) => {
           </ListItem>
         </List>
         <Divider />
-        {STATE_APP.map((list, index) => {
-          return (
-            <List key={index}>
-              <a href={`#nav${list}`}>
-              <ListItem button={true} onClick={() => handleAppState(list)}>
-                <ListItemIcon>
-                  {icons[index]}
-                </ListItemIcon>
-                <ListItemText primary={list} />
-              </ListItem>
+          {STATE_APP.map((list, index) => {
+            return (
+              <a href={`#${list.replace(' ', '-').toLowerCase()}`} key={index}>
+                <List >
+                  <ListItem button={true} onClick={() => handleAppState(list)}>
+                    <ListItemIcon>
+                      {icons[index]}
+                    </ListItemIcon>
+                    <ListItemText primary={list} />
+                  </ListItem>
+                </List>
               </a>
-            </List>
-          );
-        })}
+            );
+          })}
         <Divider />
       </div>
     </div>
