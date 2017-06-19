@@ -13,7 +13,7 @@ let store = createStore(toggleDrawer);
 function App () {
   return (
     <Provider store={store}>
-      <Root onScroll={() => console.log('scroll')}/>
+      <Root />
     </Provider>
   );
 }

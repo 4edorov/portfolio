@@ -6,6 +6,7 @@ import ContentGreetingComponent from './ContentGreetingComponent';
 import ContentAboutComponent from './ContentAboutComponent';
 import { changeStateApp } from '../../actions';
 import { STATE_APP } from '../../config/AppConfig';
+import Divider from 'material-ui/Divider';
 
 
 const styleSheet = createStyleSheet('AppContentComponent', {
@@ -32,12 +33,10 @@ class AppContentComponent extends React.Component {
   listenEventScroll = (event) => {
     let greetingPosTop = event.target.all.greeting.getBoundingClientRect().top;
     let aboutMePosTop = event.target.all['about-me'].getBoundingClientRect().top;
-    console.log('elements', greetingPosTop, aboutMePosTop);
-
-    if (greetingPosTop === 0) {
+    if (greetingPosTop <= 0) {
       this.props.changeStateApp(STATE_APP[0]);
     }
-    if (aboutMePosTop === 0) {
+    if (aboutMePosTop <= 0) {
       this.props.changeStateApp(STATE_APP[1]);
     }
   }
@@ -52,21 +51,12 @@ class AppContentComponent extends React.Component {
     return (
       <div className={this.props.classes.appContent} ref="content">
         <ContentGreetingComponent />
+        <Divider />
         <ContentAboutComponent />
       </div>
     );
   }
 }
-
-// const AppContentComponent = (props) => {
-//   const classes = props.classes;
-//   return (
-//     <div className={classes.appContent}>
-//       <ContentGreetingComponent />
-//       <ContentAboutComponent />
-//     </div>
-//   );
-// };
 
 AppContentComponent.propTypes = {
   classes: PropTypes.object.isRequired,
