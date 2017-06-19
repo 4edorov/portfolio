@@ -7,7 +7,7 @@ const MyContentGreetingComponent = () => {
       <div className="content content-greeting">
 
         <div className="greeting-1">
-          <h1># Hello!</h1>
+          <h1>Hello!</h1>
         </div>
         <div className="greeting-2">
           <h2>My Name Is Alexander Fedorov</h2>
