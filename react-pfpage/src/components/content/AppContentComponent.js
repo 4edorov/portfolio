@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import ContentGreetingComponent from './ContentGreetingComponent';
 import ContentAboutComponent from './ContentAboutComponent';
+import ContentPortfolioComponent from './ContentPortfolioComponent';
 import { changeStateApp } from '../../actions';
 import { STATE_APP } from '../../config/AppConfig';
 import Divider from 'material-ui/Divider';
@@ -53,6 +54,8 @@ class AppContentComponent extends React.Component {
         <ContentGreetingComponent />
         <Divider />
         <ContentAboutComponent />
+        <Divider />
+        <ContentPortfolioComponent />
       </div>
     );
   }

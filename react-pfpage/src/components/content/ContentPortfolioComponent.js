@@ -1,62 +1,60 @@
-import React from 'react'
-import { GridList, GridTile } from 'material-ui/GridList'
-import IconButton from 'material-ui/IconButton'
-import Subheader from 'material-ui/Subheader'
-import screenPage from '../../assets/static/images/screen_page.png'
-import screenQuote from '../../assets/static/images/screen_quote.png'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles, createStyleSheet } from 'material-ui/styles';
+import Grid from 'material-ui/Grid';
+import Card, { CardMedia, CardContent, CardActions } from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
+import IconButton from 'material-ui/IconButton';
+import Icon from 'material-ui/Icon';
+import { PORTFOLIO_WORKS } from '../../config/AppConfig';
 
 
-const styles = {
+const styleSheet = createStyleSheet('ContentPortfolioComponent', {
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
+    flexGrow: 1,
+    marginTop: 30,
   },
-  gridList: {
-    width: 500,
-    height: 450,
-    overflowY: 'auto'
+  cards: {
+    textAlign: 'center',
+    maxWidth: 345,
   }
-}
+});
 
-const tilesData = [
-  {
-    img: screenPage,
-    title: 'Tribute Page',
-    src: 'https://github.com/4edorov/onepage'
-  },
-  {
-    img: screenQuote,
-    title: 'Random Quote Machine',
-    src: 'https://github.com/4edorov/my-quote-generator'
-  }
-]
+const ContentPortfolioComponent = (props) => {
+  const classes = props.classes;
 
-const MyContentPortfolioComponent = () => {
   return (
-    <div style={styles.root}>
-      <GridList
-        cellHeight={180}
-        style={styles.gridList}
-      >
-        <Subheader>freeCodeCamp Projects</Subheader>
-        {tilesData.map((tile) => (
-          <GridTile
-            key={tile.img}
-            title={tile.title}
-            actionIcon={
-              <IconButton
-                iconClassName="fa fa-github"
-                href={tile.src}
-              />
-            }
-          >
-            <img src={tile.img} />
-          </GridTile>
+    <div id="portfolio" className={classes.root}>
+      <Grid container gutter={24}>
+        {PORTFOLIO_WORKS.map(work => (
+          <Grid item xs={12} sm={4}>
+            <Card className={classes.card}>
+              <CardMedia>
+                <img src={work.imgSrc} alt={work.title} />
+              </CardMedia>
+              <CardContent>
+                <Typography type="headline">
+                  {work.title}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <IconButton href={work.openLink.git}>
+                  <Icon clssName={work.iconType.git} />
+                </IconButton>
+                <IconButton href={work.openLink.codepen}>
+                  <Icon clssName={work.iconType.codepen} />
+                </IconButton>
+              </CardActions>
+            </Card>
+          </Grid>
         ))}
-      </GridList>
+      </Grid>
     </div>
- )
-}
+  );
+};
 
-export default MyContentPortfolioComponent
+ContentPortfolioComponent.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styleSheet)(ContentPortfolioComponent);
