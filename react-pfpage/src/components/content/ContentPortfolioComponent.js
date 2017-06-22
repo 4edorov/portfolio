@@ -6,18 +6,31 @@ import Card, { CardMedia, CardContent, CardActions } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
 import Icon from 'material-ui/Icon';
-import { PORTFOLIO_WORKS } from '../../config/AppConfig';
+import { PORTFOLIO_WORKS, COLOR_APP } from '../../config/AppConfig';
 
 
 const styleSheet = createStyleSheet('ContentPortfolioComponent', {
   root: {
+    display: 'flex',
+    justifyContent: 'center',
     flexGrow: 1,
-    marginTop: 30,
+    flexDirection: 'column',
+    alignItems: 'center',
+    fontFamily: 'monospace',
+    minHeight: '100vh',
+    margin: 50,
   },
-  cards: {
-    textAlign: 'center',
-    maxWidth: 345,
-  }
+  caption: {
+    marginBottom: 50,
+  },
+  imgView: {
+    width: 'auto',
+    height: 'auto',
+    maxWidth: '100%',
+  },
+  cardContent: {
+    background: COLOR_APP.accent[500],
+  },
 });
 
 const ContentPortfolioComponent = (props) => {
@@ -25,30 +38,38 @@ const ContentPortfolioComponent = (props) => {
 
   return (
     <div id="portfolio" className={classes.root}>
-      <Grid container gutter={24}>
-        {PORTFOLIO_WORKS.map(work => (
-          <Grid item xs={12} sm={4}>
-            <Card className={classes.card}>
-              <CardMedia>
-                <img src={work.imgSrc} alt={work.title} />
-              </CardMedia>
-              <CardContent>
-                <Typography type="headline">
-                  {work.title}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <IconButton href={work.openLink.git}>
-                  <Icon clssName={work.iconType.git} />
-                </IconButton>
-                <IconButton href={work.openLink.codepen}>
-                  <Icon clssName={work.iconType.codepen} />
-                </IconButton>
-              </CardActions>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+      <div className={classes.caption}>
+        <h1>Portfolio</h1>
+      </div>
+      <div>
+        <Grid container gutter={24}>
+          {PORTFOLIO_WORKS.map(work => (
+            <Grid item xs={12} md={6} lg={4}>
+              <Card className={classes.cards}>
+                <CardMedia>
+                  <img className={classes.imgView} src={work.imgSrc} alt={work.title} />
+                </CardMedia>
+                <CardContent className={classes.cardContent}>
+                  <Typography type="headline">
+                    {work.title}
+                  </Typography>
+                  <Typography component="p">
+                    {work.description}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <IconButton color="accent" target="_blank" href={work.openLink.git}>
+                    <Icon className={work.iconType.git} />
+                  </IconButton>
+                  <IconButton color="accent" target="_blank" href={work.openLink.codepen}>
+                    <Icon className={work.iconType.codepen} />
+                  </IconButton>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </div>
     </div>
   );
 };

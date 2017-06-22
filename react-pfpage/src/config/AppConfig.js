@@ -16,6 +16,7 @@ export const COLOR_APP = {
 export const PORTFOLIO_WORKS = [
   {
     title: 'Tribute Page',
+    description: 'A freeCodeCamp project',
     imgSrc: screenPage,
     openLink: {
       git: 'https://github.com/4edorov/onepage',
@@ -28,6 +29,7 @@ export const PORTFOLIO_WORKS = [
   },
   {
     title: 'Random Quote Machine',
+    description: 'A freeCodeCamp project',
     imgSrc: screenQuote,
     openLink: {
       git: 'https://github.com/4edorov/my-quote-generator',

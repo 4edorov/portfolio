@@ -32,13 +32,17 @@ const mapDispatchToProps = (dispatch) => ({
 
 class AppContentComponent extends React.Component {
   listenEventScroll = (event) => {
-    let greetingPosTop = event.target.all.greeting.getBoundingClientRect().top;
+    let greetingPosTop = event.target.all['greeting'].getBoundingClientRect().top;
     let aboutMePosTop = event.target.all['about-me'].getBoundingClientRect().top;
+    let portfolioTop = event.target.all['portfolio'].getBoundingClientRect().top;
     if (greetingPosTop <= 0) {
       this.props.changeStateApp(STATE_APP[0]);
     }
     if (aboutMePosTop <= 0) {
       this.props.changeStateApp(STATE_APP[1]);
+    }
+    if (portfolioTop <=0) {
+      this.props.changeStateApp(STATE_APP[2]);
     }
   }
   componentDidMount() {
