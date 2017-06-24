@@ -1,6 +1,7 @@
 import { lime, deepOrange } from 'material-ui/styles/colors';
 import screenPage from '../assets/static/images/screen_page.png';
 import screenQuote from '../assets/static/images/screen_quote.png';
+import screenWeather from '../assets/static/images/screen_weather.png';
 
 
 export const URL_GIT_HUB = 'https://github.com/4edorov';
@@ -34,6 +35,19 @@ export const PORTFOLIO_WORKS = [
     openLink: {
       git: 'https://github.com/4edorov/my-quote-generator',
       codepen: 'https://codepen.io/4edorov/pen/bgeOMo',
+    },
+    iconType: {
+      git: 'fa fa-github',
+      codepen: 'fa fa-codepen',
+    },
+  },
+  {
+    title: 'Local Weather',
+    description: 'A freeCodeCamp project',
+    imgSrc: screenWeather,
+    openLink: {
+      git: 'https://github.com/4edorov/my-local-weather',
+      codepen: 'https://codepen.io/4edorov/pen/PWpwLw',
     },
     iconType: {
       git: 'fa fa-github',

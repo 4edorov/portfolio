@@ -43,8 +43,8 @@ const ContentPortfolioComponent = (props) => {
       </div>
       <div>
         <Grid container gutter={24}>
-          {PORTFOLIO_WORKS.map(work => (
-            <Grid item xs={12} md={6} lg={4}>
+          {PORTFOLIO_WORKS.map((work, index) => (
+            <Grid item xs={12} md={6} lg={4} key={index}>
               <Card className={classes.cards}>
                 <CardMedia>
                   <img className={classes.imgView} src={work.imgSrc} alt={work.title} />
