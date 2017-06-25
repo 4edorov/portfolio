@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import ContentGreetingComponent from './ContentGreetingComponent';
 import ContentAboutComponent from './ContentAboutComponent';
+import ContentPortfolioComponent from './ContentPortfolioComponent';
+import ContentMyWayComponent from './ContentMyWayComponent';
+import ContentContactsComponent from './ContentContactsComponent';
 import { changeStateApp } from '../../actions';
 import { STATE_APP } from '../../config/AppConfig';
+import Divider from 'material-ui/Divider';
 
 
 const styleSheet = createStyleSheet('AppContentComponent', {
@@ -28,17 +32,28 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-class AppContentComponent extends React.Component {
+class AppContentComponent extends Component {
   listenEventScroll = (event) => {
-    let greetingPosTop = event.target.all.greeting.getBoundingClientRect().top;
-    let aboutMePosTop = event.target.all['about-me'].getBoundingClientRect().top;
-    console.log('elements', greetingPosTop, aboutMePosTop);
+    let greetingTop = event.target.all['greeting'].getBoundingClientRect().top;
+    let aboutTop = event.target.all['about-me'].getBoundingClientRect().top;
+    let portfolioTop = event.target.all['portfolio'].getBoundingClientRect().top;
+    let wayTop = event.target.all['my-way'].getBoundingClientRect().top;
+    let contactsTop = event.target.all['contacts'].getBoundingClientRect().top;
 
-    if (greetingPosTop === 0) {
+    if (greetingTop <= 0) {
       this.props.changeStateApp(STATE_APP[0]);
     }
-    if (aboutMePosTop === 0) {
+    if (aboutTop <= 0) {
       this.props.changeStateApp(STATE_APP[1]);
+    }
+    if (portfolioTop <=0) {
+      this.props.changeStateApp(STATE_APP[2]);
+    }
+    if (wayTop <= 0) {
+      this.props.changeStateApp(STATE_APP[3]);
+    }
+    if (contactsTop <= 0) {
+      this.props.changeStateApp(STATE_APP[4]);
     }
   }
   componentDidMount() {
@@ -52,21 +67,18 @@ class AppContentComponent extends React.Component {
     return (
       <div className={this.props.classes.appContent} ref="content">
         <ContentGreetingComponent />
+        <Divider />
         <ContentAboutComponent />
+        <Divider />
+        <ContentPortfolioComponent />
+        <Divider />
+        <ContentMyWayComponent />
+        <Divider />
+        <ContentContactsComponent />
       </div>
     );
   }
 }
-
-// const AppContentComponent = (props) => {
-//   const classes = props.classes;
-//   return (
-//     <div className={classes.appContent}>
-//       <ContentGreetingComponent />
-//       <ContentAboutComponent />
-//     </div>
-//   );
-// };
 
 AppContentComponent.propTypes = {
   classes: PropTypes.object.isRequired,

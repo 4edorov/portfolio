@@ -14,7 +14,7 @@ import ArtTrack from 'material-ui-icons/ArtTrack';
 import Business from 'material-ui-icons/Business';
 import Directions from 'material-ui-icons/Directions';
 import Contacts from 'material-ui-icons/Contacts';
-import { STATE_APP } from '../../config/AppConfig';
+import { STATE_APP, COLOR_APP } from '../../config/AppConfig';
 
 
 const mapStateToProps = (state) => ({
@@ -44,6 +44,12 @@ const styleSheet = createStyleSheet('AppDrawerInfoComponent', theme => ({
   },
   begin: {
     marginTop: 64,
+  },
+  navLink: {
+    textDecoration: 'none',
+  },
+  activeBtn: {
+    background: COLOR_APP.primary[500],
   },
 }));
 
@@ -85,20 +91,21 @@ const AppDrawerInfoComponent = (props) => {
           </ListItem>
         </List>
         <Divider />
-          {STATE_APP.map((list, index) => {
-            return (
-              <a href={`#${list.replace(' ', '-').toLowerCase()}`} key={index}>
-                <List >
-                  <ListItem button={true} onClick={() => handleAppState(list)}>
-                    <ListItemIcon>
-                      {icons[index]}
-                    </ListItemIcon>
-                    <ListItemText primary={list} />
-                  </ListItem>
-                </List>
-              </a>
-            );
-          })}
+        {STATE_APP.map((list, index) => {
+          let activeStateApp = list === props.stateApp ? classes.activeBtn : '';
+          return (
+            <a href={`#${list.replace(' ', '-').toLowerCase()}`} key={index} className={classes.navLink}>
+              <List >
+                <ListItem button={true} className={activeStateApp} onClick={() => handleAppState(list)}>
+                  <ListItemIcon>
+                    {icons[index]}
+                  </ListItemIcon>
+                  <ListItemText primary={list} />
+                </ListItem>
+              </List>
+            </a>
+          );
+        })}
         <Divider />
       </div>
     </div>

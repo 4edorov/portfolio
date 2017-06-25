@@ -10,6 +10,7 @@ const styleSheet = createStyleSheet('AppButtonComponent', theme => ({
     position: 'fixed',
     right: 40,
     bottom: 40,
+    zIndex: 1000,
   },
   mailTo: {
     textDecoration: 'none',
@@ -21,7 +22,7 @@ const styleSheet = createStyleSheet('AppButtonComponent', theme => ({
 const AppButtonComponent = (props) => {
   const classes = props.classes;
   return (
-    <Button fab accent className={classes.appButton}>
+    <Button fab={true} color={"accent"} className={classes.appButton}>
       <a className={classes.mailTo} href="mailto:4edorov@gmail.com">
         <Chat />
       </a>
