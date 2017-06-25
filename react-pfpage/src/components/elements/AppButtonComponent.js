@@ -10,6 +10,7 @@ const styleSheet = createStyleSheet('AppButtonComponent', theme => ({
     position: 'fixed',
     right: 40,
     bottom: 40,
+    zIndex: 1000,
   },
   mailTo: {
     textDecoration: 'none',

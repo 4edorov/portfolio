@@ -6,6 +6,7 @@ import ContentGreetingComponent from './ContentGreetingComponent';
 import ContentAboutComponent from './ContentAboutComponent';
 import ContentPortfolioComponent from './ContentPortfolioComponent';
 import ContentMyWayComponent from './ContentMyWayComponent';
+import ContentContactsComponent from './ContentContactsComponent';
 import { changeStateApp } from '../../actions';
 import { STATE_APP } from '../../config/AppConfig';
 import Divider from 'material-ui/Divider';
@@ -37,6 +38,7 @@ class AppContentComponent extends Component {
     let aboutTop = event.target.all['about-me'].getBoundingClientRect().top;
     let portfolioTop = event.target.all['portfolio'].getBoundingClientRect().top;
     let wayTop = event.target.all['my-way'].getBoundingClientRect().top;
+    let contactsTop = event.target.all['contacts'].getBoundingClientRect().top;
 
     if (greetingTop <= 0) {
       this.props.changeStateApp(STATE_APP[0]);
@@ -49,6 +51,9 @@ class AppContentComponent extends Component {
     }
     if (wayTop <= 0) {
       this.props.changeStateApp(STATE_APP[3]);
+    }
+    if (contactsTop <= 0) {
+      this.props.changeStateApp(STATE_APP[4]);
     }
   }
   componentDidMount() {
@@ -68,6 +73,8 @@ class AppContentComponent extends Component {
         <ContentPortfolioComponent />
         <Divider />
         <ContentMyWayComponent />
+        <Divider />
+        <ContentContactsComponent />
       </div>
     );
   }
