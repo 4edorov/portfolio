@@ -28,12 +28,12 @@ const styleSheet = createStyleSheet('ContentMyWayComponent', theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    minHeigth: '100vh',
+    minHeight: '100vh',
     fontFamily: 'monospace',
     magrin: 50,
   },
   main: {
-    width: '100%',
+    width: 'calc(100% - 100px)',
     margin: 50,
   },
   caption: {
