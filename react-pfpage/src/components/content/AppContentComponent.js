@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import ContentGreetingComponent from './ContentGreetingComponent';
 import ContentAboutComponent from './ContentAboutComponent';
 import ContentPortfolioComponent from './ContentPortfolioComponent';
+import ContentMyWayComponent from './ContentMyWayComponent';
 import { changeStateApp } from '../../actions';
 import { STATE_APP } from '../../config/AppConfig';
 import Divider from 'material-ui/Divider';
@@ -30,19 +31,24 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-class AppContentComponent extends React.Component {
+class AppContentComponent extends Component {
   listenEventScroll = (event) => {
-    let greetingPosTop = event.target.all['greeting'].getBoundingClientRect().top;
-    let aboutMePosTop = event.target.all['about-me'].getBoundingClientRect().top;
+    let greetingTop = event.target.all['greeting'].getBoundingClientRect().top;
+    let aboutTop = event.target.all['about-me'].getBoundingClientRect().top;
     let portfolioTop = event.target.all['portfolio'].getBoundingClientRect().top;
-    if (greetingPosTop <= 0) {
+    let wayTop = event.target.all['my-way'].getBoundingClientRect().top;
+
+    if (greetingTop <= 0) {
       this.props.changeStateApp(STATE_APP[0]);
     }
-    if (aboutMePosTop <= 0) {
+    if (aboutTop <= 0) {
       this.props.changeStateApp(STATE_APP[1]);
     }
     if (portfolioTop <=0) {
       this.props.changeStateApp(STATE_APP[2]);
+    }
+    if (wayTop <= 0) {
+      this.props.changeStateApp(STATE_APP[3]);
     }
   }
   componentDidMount() {
@@ -60,6 +66,8 @@ class AppContentComponent extends React.Component {
         <ContentAboutComponent />
         <Divider />
         <ContentPortfolioComponent />
+        <Divider />
+        <ContentMyWayComponent />
       </div>
     );
   }

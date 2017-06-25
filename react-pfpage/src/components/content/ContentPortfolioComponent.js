@@ -29,11 +29,11 @@ const styleSheet = createStyleSheet('ContentPortfolioComponent', {
     maxWidth: '100%',
   },
   cardContent: {
-    background: COLOR_APP.accent[500],
+    background: COLOR_APP.primary[500],
   },
 });
 
-const ContentPortfolioComponent = (props) => {
+const ContentPortfolioComponent = props => {
   const classes = props.classes;
 
   return (

@@ -2,6 +2,8 @@ import { lime, deepOrange } from 'material-ui/styles/colors';
 import screenPage from '../assets/static/images/screen_page.png';
 import screenQuote from '../assets/static/images/screen_quote.png';
 import screenWeather from '../assets/static/images/screen_weather.png';
+import screenSearch from '../assets/static/images/screen_search.png';
+import screenTwitch from '../assets/static/images/screen_twitch.png';
 
 
 export const URL_GIT_HUB = 'https://github.com/4edorov';
@@ -48,6 +50,32 @@ export const PORTFOLIO_WORKS = [
     openLink: {
       git: 'https://github.com/4edorov/my-local-weather',
       codepen: 'https://codepen.io/4edorov/pen/PWpwLw',
+    },
+    iconType: {
+      git: 'fa fa-github',
+      codepen: 'fa fa-codepen',
+    },
+  },
+  {
+    title: 'Wiki Search',
+    description: 'A freeCodeCamp project',
+    imgSrc: screenSearch,
+    openLink: {
+      git: 'https://github.com/4edorov/wiki_query',
+      codepen: 'https://codepen.io/4edorov/pen/BpgKyX',
+    },
+    iconType: {
+      git: 'fa fa-github',
+      codepen: 'fa fa-codepen',
+    },
+  },
+  {
+    title: 'Twitch Streamers',
+    description: 'A freeCodeCamp project',
+    imgSrc: screenTwitch,
+    openLink: {
+      git: 'https://github.com/4edorov/stream_twitchtv',
+      codepen: 'https://codepen.io/4edorov/pen/WpxzaJ',
     },
     iconType: {
       git: 'fa fa-github',
