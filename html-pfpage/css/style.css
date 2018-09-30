@@ -1,63 +1,96 @@
 body {
-    position: relative;
-    padding-top: 70px;
-    background-color: #c8e5bc;
+	position: relative;
+	padding-top: 70px;
+	background-color: #c8e5bc;
 }
 .header {
-    background-color: #31b0d5;
+  background-color: #31b0d5;
 }
 .center {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 .header-text {
-    font-size: 20px;
+  font-size: 20px;
 }
 .about-part {
-    background-color: darkgray;
-    min-height: 300px;
-    margin: auto;
+	background-color: darkgray;
+	min-height: 100vh;
+	margin: auto;
+	position: relative;
+}
+.in-about-part {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	top: 56px;
+	bottom: 0;
+	right: 0;
+	left: 0;
 }
 .ava-pic {
-    display: block;
-    max-width: 50%;
-    margin: auto;
-    padding: 25px 0px 35px 0px;
+	display: block;
+	max-width: 50%;
+	margin: auto;
+	padding: 25px 0px 35px 0px;
 }
 .port-part {
-    background-color: cornflowerblue; 
-    min-height: 350px;
+  background-color: cornflowerblue; 
+	min-height: 900px;
+	position: relative;
 }
-.port-pad {
-    padding: 25px;
+.port-link {
+	font-size: 1.5em;
+}
+.project-tile {
+	padding: 25px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 .port-pic {
-    display: inline-block;
-    max-width: 70%;
-    padding: 15px;
+	display: inline-block;
+	max-width: 70%;
+	padding: 15px;
+	max-height: 150px;
 }
 .cont-part {
-    background-color: #a58222;
+	background-color: #a58222;
+	min-height: 900px;
+	position: relative;
 }
 .footer {
-    padding-bottom: 50px;
+  padding-bottom: 50px;
 }
 .partBottom {
-    margin-bottom: 0px;
-    background-color: #31b0d5;
-    height: 70px;
+	margin-bottom: 0px;
+	background-color: #31b0d5;
+	height: 70px;
 }
 .footer-left {
-    float: left;
+  float: left;
 }
 .footer-right {
-    float: right;
+  float: right;
 }
 .btn-circle {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  line-height: 1.42;
-  border-radius: 15px;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	padding: 6px 0;
+	font-size: 12px;
+	line-height: 1.42;
+	border-radius: 15px;
+}
+@media (max-width: 991px) {
+	.in-about-part {
+		flex-direction: column;
+		justify-content: center;
+	}
+}
+.anchor {
+	position: relative;
+	top: -82px;
+	display: block;
+	height: 0;
+	width:0;
 }
